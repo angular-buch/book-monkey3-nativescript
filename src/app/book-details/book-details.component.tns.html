@@ -1,0 +1,20 @@
+<ScrollView *ngIf="book">
+  <StackLayout class="m-10">
+    <Label [text]="book.title" class="h1" textWrap="true"></Label>
+    <Label *ngIf="book.subtitle" [text]="book.subtitle" class="h2" textWrap="true"></Label>
+    <WrapLayout>
+      <Label *ngFor="let author of book.authors; last as l" [text]="author + (!l ? ', ' : '')" textWrap="true"></Label>
+    </WrapLayout>
+    <Label [text]="'ISBN: ' + book.isbn" textWrap="true" class="m-y-5"></Label>
+    <Label [text]="'Erschienen: ' + (book.published | date)" textWrap="true" class="m-y-5"></Label>
+    <Label [text]="'Rating: ' + book.rating" class="m-y-5"></Label>
+    <Label text="Beschreibung:" class="m-y-5"></Label>
+    <TextView [text]="book.description" [editable]="false"></TextView>
+    <ScrollView orientation="horizontal">
+      <StackLayout orientation="horizontal">
+        <Image *ngFor="let thumbnail of book.thumbnails" [src]="thumbnail.url" height="600px" width="400px" class="m-x-10"></Image>
+      </StackLayout>
+    </ScrollView>
+    <Button text="Buch löschen" class="btn btn-primary" (tap)="removeBook()"></Button>
+  </StackLayout>
+</ScrollView>

@@ -1,0 +1,17 @@
+<SearchBar hint="Suche"
+  (textChange)="keyUp$.next($event.object.text)">
+</SearchBar>
+
+<GridLayout *ngIf="foundBooks.length">
+  <ListView class="list-group" [items]="foundBooks">
+    <ng-template let-item="item">
+      <StackLayout class="list-group-item"
+        [nsRouterLink]="['..', 'books', item.isbn]">
+        <Label class="list-group-item-heading"
+          [text]="item.title"></Label>
+        <Label class="list-group-item-text"
+          [text]="item.subtitle"></Label>
+      </StackLayout>
+    </ng-template>
+  </ListView>
+</GridLayout>

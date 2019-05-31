@@ -1,0 +1,7 @@
+<Image row="0" col="0" rowSpan="4" *ngIf="book.thumbnails && book.thumbnails[0] && book.thumbnails[0].url" class="thumb" [src]="book.thumbnails[0].url"></Image>
+<Label row="0" col="1" [text]="book.title" class="list-group-item-heading"></Label>
+<Label row="1" col="1" *ngIf="book.subtitle" [text]="book.subtitle" class="list-group-item-text"></Label>
+<StackLayout row="2" col="1" orientation="horizontal" class="list-group-item-text">
+  <Label *ngFor="let author of book.authors; last as l" [text]="author + (!l ? ', ' : '')"></Label>
+</StackLayout>
+<Label row="3" col="1" [text]="'ISBN: ' + book.isbn"  class="list-group-item-text font-italic"></Label>

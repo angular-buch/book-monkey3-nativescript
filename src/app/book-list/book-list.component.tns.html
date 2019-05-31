@@ -1,0 +1,11 @@
+<GridLayout rows="*" columns="*">
+  <ActivityIndicator [busy]="!books"></ActivityIndicator>
+  <Label *ngIf="books && !books.length" text="Es wurden noch keine Bücher eingetragen."></Label>
+  <ListView [items]="books" class="list-group">
+    <ng-template let-item="item">
+      <GridLayout [nsRouterLink]="item.isbn" class="list-group-item" columns="80, *" rows="auto,*,*,*">
+        <bm-book-list-item [book]="item"></bm-book-list-item>
+      </GridLayout>
+    </ng-template>
+  </ListView>
+</GridLayout>

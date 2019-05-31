@@ -1,0 +1,9 @@
+<StackLayout>
+  <GridLayout rows="auto" columns="*,*" class="action-bar p-10">
+    <Button text="Home" class="text-center action-bar-title" row="0" col="0" nsRouterLink="home" nsRouterLinkActive="active"></Button>
+    <Button text="Bücher" class="text-center action-bar-title" row="0" col="1" nsRouterLink="books" nsRouterLinkActive="active"></Button>
+  </GridLayout>
+  <StackLayout>
+    <page-router-outlet></page-router-outlet>
+  </StackLayout>
+</StackLayout>
